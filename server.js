@@ -18,6 +18,26 @@ app.use(express.json());
 
 const STEAM_API_KEY = process.env.STEAM_API_KEY;
 
+// Route to get most played games
+app.get("/api/most-played", async (req, res) => {
+  try {
+    const response = await axios.get(
+      "https://api.steampowered.com/ISteamChartsService/GetMostPlayedGames/v1/"
+    );
+    
+    if (response.data && response.data.response && response.data.response.ranks) {
+      
+      const games = response.data.response.ranks;
+      res.json(games);
+    } else {
+      throw new Error("Invalid response format from Steam API");
+    }
+  } catch (error) {
+    console.error("Error fetching most played games:", error);
+    res.status(500).json({ error: "Failed to fetch most played games" });
+  }
+});
+
 // Route to get global achievement percentages for a game
 app.get("/api/achievements/:appId", async (req, res) => {
   try {

@@ -9,17 +9,17 @@ function GameList({ games, loading, error, title = 'Games List' }) {
   if (!games || games.length === 0) return <div>No games found.</div>;
 
   return (
-    <div>
+    <>
       <h2>{title}</h2>
       <table className={styles.gameTable}>
-        <thead style={{width:"100%"}}>
+        <thead>
           <tr className={styles.tableTitles}>
             <th>Rank</th>
             <th>Game</th>
-            <th>Peak Today</th>
+            <th>Amount of players</th>
           </tr>
         </thead>
-        <tbody style={{width:"100%"}}>
+        <tbody>
           {games.map((game, index) => (
             <tr key={game.appid} className={index % 2 === 0 ? styles.evenGame : styles.oddGame}>
               <td>{index + 1}</td>
@@ -29,7 +29,7 @@ function GameList({ games, loading, error, title = 'Games List' }) {
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 }
 

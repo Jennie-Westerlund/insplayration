@@ -128,9 +128,23 @@ if (process.env.NODE_ENV === 'production') {
   // Serve static files from the React frontend app
   app.use(express.static(path.join(__dirname, './dist')));
 
-  // Handle React routing, return all requests to React app
-  app.get('*', (req, res) => {
+  // Instead of using a wildcard route (*), specify the exact routes
+  app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './dist', 'index.html'));
+  });
+  
+  // Add specific routes for your React app if needed
+  app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, './dist', 'index.html'));
+  });
+  
+  // As a fallback, add this route at the end
+  app.use((req, res) => {
+    if (!req.path.startsWith('/api/')) {
+      res.sendFile(path.join(__dirname, './dist', 'index.html'));
+    } else {
+      res.status(404).json({ error: 'API endpoint not found' });
+    }
   });
 }
 

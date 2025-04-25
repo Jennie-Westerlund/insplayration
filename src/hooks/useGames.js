@@ -10,7 +10,7 @@ export function useMostPlayedGames() {
     const fetchGames = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:3001/api/most-played');
+        const response = await fetch('/api/most-played');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }

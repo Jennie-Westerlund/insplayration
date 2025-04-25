@@ -18,6 +18,16 @@ app.use(express.json());
 
 const STEAM_API_KEY = process.env.STEAM_API_KEY;
 
+app.get('/api/test', (req, res) => {
+  res.json({ 
+    message: "Server is working!",
+    timestamp: new Date().toISOString(),
+    env: process.env.NODE_ENV,
+    port: PORT
+  });
+});
+
+
 // Route to get most played games with names
 app.get("/api/most-played", async (req, res) => {
   try {
@@ -148,6 +158,14 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV}`);
+  console.log(`Steam API Key configured: ${!!process.env.STEAM_API_KEY}`);
+});
+
+// Handle server errors
+server.on('error', (error) => {
+  console.error('Server error:', error);
+  process.exit(1);  // Exit on critical errors
 });

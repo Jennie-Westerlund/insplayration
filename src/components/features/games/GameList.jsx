@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './GameList.module.css';
 
 
-function GameList({ games, loading, error, title = 'Games List' }) {
+function GameList({ games, loading, error, title = 'Games List', tableHeaders }) {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!games || games.length === 0) return <div>No games found.</div>;
@@ -14,9 +14,9 @@ function GameList({ games, loading, error, title = 'Games List' }) {
       <table className={styles.gameTable}>
         <thead>
           <tr className={styles.tableTitles}>
-            <th>Rank</th>
-            <th>Game</th>
-            <th>Amount of players</th>
+          {tableHeaders.map((tableHeader, index) => (
+              <th>{tableHeader}</th>
+          ))}
           </tr>
         </thead>
         <tbody>

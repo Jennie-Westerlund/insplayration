@@ -123,6 +123,8 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "Server is working!" });
 });
 
+app.use(express.static(join(__dirname, 'dist')));
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

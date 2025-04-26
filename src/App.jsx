@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import React from 'react';
 import MostPlayedGames from './components/containers/MostPlayedGames';
+import PercentageWheel from './components/features/games/percentageWheel/percentageWheel';
 
 function App() {
   return (
@@ -10,6 +11,10 @@ function App() {
       <p>Find your next gaming adventure from Steam's most popular titles</p>
       
       <MostPlayedGames />
+      <PercentageWheel 
+      percentage={50}
+      title="Teeest"
+      />
     </main>
   );
 }

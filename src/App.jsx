@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import React from 'react';
 import MostPlayedGames from './components/containers/MostPlayedGames';
-import PercentageWheel from './components/features/games/percentageWheel/percentageWheel';
+import PercentageWheel from "./components/features/games/percentageWheel/PercentageWheel";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 // src/components/features/games/percentageWheel/percentageWheel.jsx
 import React from 'react';
-import styles from './percentageWheel.module.css';
+import styles from './PercentageWheel.module.css';
 
 const PercentageWheel = ({ percentage = 0, title, className, loading, error }) => {
   

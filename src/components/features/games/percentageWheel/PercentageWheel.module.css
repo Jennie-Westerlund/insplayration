@@ -1,0 +1,56 @@
+/* .circleBackground {
+    fill: none;
+    stroke: #ddd;
+}
+
+.circlePercentage {
+    fill: none;
+    stroke: cornflowerblue;
+}
+ */
+
+/* src/components/features/games/percentageWheel/percentageWheel.module.css */
+.PercentageWheel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    font-family: sans-serif;
+  }
+  
+  .PercentageWheel p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .circleContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .circleBackground {
+    fill: transparent;
+    stroke: #e6e6e6;
+  }
+  
+  .circlePercentageBlue {
+    fill: transparent;
+    stroke: cornflowerblue;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease-in-out;
+  }
+  
+  .percentageText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }

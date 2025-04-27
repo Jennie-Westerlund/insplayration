@@ -11,7 +11,8 @@ function MostPlayedGames() {
       games={games} 
       loading={loading} 
       error={error} 
-      title="Top Most Played Games on Steam this week" 
+      title="Top Most Played Games on Steam this week"
+      tableHeaders={["Rank", "Game", "Amount of players"]}
     />
   );
 }

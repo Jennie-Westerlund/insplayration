@@ -77,7 +77,7 @@ const GameCard = ({ game, onClose }) => {
           </div>
         )}
 
-        <Button className={buttonStyles.buttonBlue1} style={{justifySelf:"center", margin:"1rem 0"}}>
+        <Button className={buttonStyles.buttonGreen} style={{justifySelf:"center", margin:"1rem 0"}}>
           <a
             href={getSteamStoreUrl()}
             target="_blank"

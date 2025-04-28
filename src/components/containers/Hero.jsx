@@ -76,7 +76,7 @@ const Hero = () => {
           </div>
         )}
 
-          <Button className={buttonStyles.buttonBlue1} style={{alignSelf:"center"}}>
+          <Button className={buttonStyles.buttonGreen} style={{alignSelf:"center"}}>
           <a
             href={getSteamStoreUrl()}
             target="_blank"

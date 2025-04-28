@@ -25,7 +25,7 @@
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-.buttonBlue1 {
+.buttonGreen {
     width: fit-content;
     display: flex;
     padding: 1rem 1.5rem;
@@ -39,13 +39,13 @@
     font-weight: 400;
     line-height: 1rem; /* 100% */
     cursor: pointer;
-    background-color: #7AA5F2;
+    background-color: #7ab168;
     transition: all 0.2s ease;
     color: white;
 }
 
-.buttonBlue1:hover {
-    background-color: #648dd7;
+.buttonGreen:hover {
+    background-color: #6ba05a;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }

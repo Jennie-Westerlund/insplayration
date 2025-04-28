@@ -41,6 +41,7 @@ export function useGameDetails(gameId) {
             (achievement) => {
               achievementDetails[achievement.name] = {
                 displayName: achievement.displayName,
+                description: achievement.description,
                 icon: achievement.icon,
                 icongray: achievement.icongray,
               };
@@ -67,6 +68,8 @@ export function useGameDetails(gameId) {
                     displayName:
                       achievementDetails[achievement.name]?.displayName ||
                       achievement.name,
+                    description:
+                      achievementDetails[achievement.name]?.description || "",
                     icon: achievementDetails[achievement.name]?.icon || null,
                     icongray:
                       achievementDetails[achievement.name]?.icongray || null,

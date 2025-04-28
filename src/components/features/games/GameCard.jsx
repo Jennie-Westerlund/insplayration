@@ -16,14 +16,12 @@ const GameCard = ({ game, onClose }) => {
     }
   };
 
-  // Helper function to debug achievement structure
   const logAchievementStructure = () => {
     if (achievements && achievements.length > 0) {
       console.log("Achievement structure:", achievements[0]);
     }
   };
 
-  // Call this once to see the structure
   React.useEffect(() => {
     if (achievements && achievements.length > 0) {
       logAchievementStructure();
@@ -61,8 +59,18 @@ const GameCard = ({ game, onClose }) => {
                         className={styles.achievementItem}
                       >
                         {achievement.icon && (
-                          <div className={styles.achievementIcon}>
-                            <img src={achievement.icon} alt="" />
+                          <div
+                            className={styles.achievementIcon}
+                            title={achievement.description}
+                          >
+                            <img
+                              src={achievement.icon}
+                              alt={achievement.displayName}
+                              className={styles.achievementIconImg}
+                            />
+                            <span className={styles.achievementTooltip}>
+                              {achievement.description}
+                            </span>
                           </div>
                         )}
                         <div className={styles.achievementContent}>

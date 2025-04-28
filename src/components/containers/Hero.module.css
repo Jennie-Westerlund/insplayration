@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
   margin-bottom: 2rem;
-  border-radius: 12px;
+  border-radius: 0.5rem;
   overflow: hidden;
   background-color: #242424;
   background-size: cover;
@@ -45,6 +45,7 @@
 .heroContent {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   padding: 0 2rem 2rem;
   margin-top: -40px;
   position: relative;
@@ -58,7 +59,7 @@
 .title {
   font-size: 32px;
   color: #ffffff;
-  margin: 0 0 1rem 0;
+  margin: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -66,9 +67,8 @@
   background-color: rgb(6 6 6 / 65%);
   border-radius: 8px;
   padding: 1rem;
-  margin-bottom: 1rem;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 1rem;
   color: #e6e6e6;
   width: 100%;
   max-width: 800px;

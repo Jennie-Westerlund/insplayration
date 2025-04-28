@@ -7,6 +7,12 @@ import Button, { buttonStyles } from "./components/common/Button"
 
 
 function App() {
+  const [showGames, setShowGames] = useState(false);
+
+  const toggleGames = () => {
+    setShowGames(!showGames);
+  };
+
   return (
     <main>
       <img
@@ -16,10 +22,14 @@ function App() {
       />
       {/* <p>Find your next gaming adventure from Steam's most popular titles</p> */}
       <Hero />
-      <Button className={buttonStyles.buttonBlue}>
-      Most Played Games on Steam this week
-      </Button>
-      <MostPlayedGames />
+      <Button 
+          className={buttonStyles.buttonBlue} 
+          onClick={toggleGames}
+        >
+          {showGames ? "Hide" : "Show"} Most Played Games on Steam
+        </Button>
+        
+        {showGames && <MostPlayedGames />}
     </main>
   );
 }

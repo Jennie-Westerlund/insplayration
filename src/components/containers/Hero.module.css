@@ -63,9 +63,9 @@
 }
 
 .description {
-  background-color: rgba(42, 42, 42, 0.6);
+  background-color: rgb(6 6 6 / 65%);
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem;
   margin-bottom: 1rem;
   line-height: 1.5;
   font-size: 16px;
@@ -91,9 +91,6 @@
   margin-bottom: 2rem;
 }
 
-.storeLink {
-  margin-top: auto;
-}
 
 .steamButton {
   display: inline-flex;

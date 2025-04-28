@@ -14,7 +14,7 @@ function App() {
       alt="Insplayration logotyp"
       className="logo"
       />
-      <p>Find your next gaming adventure from Steam's most popular titles</p>
+      {/* <p>Find your next gaming adventure from Steam's most popular titles</p> */}
       <Hero />
       <Button className={buttonStyles.buttonBlue}>
       Most Played Games on Steam this week

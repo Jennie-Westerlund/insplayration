@@ -3,6 +3,7 @@ import styles from "./Hero.module.css";
 import PercentageWheel from "../features/games/percentageWheel/PercentageWheel";
 import { useGameDetails } from "../../hooks/useGameDetails";
 import HeroSkeleton from "./HeroSkeleton";
+import Button, { buttonStyles } from "../common/Button"
 
 const Hero = () => {
   // Use hardcoded game ID: 1519880
@@ -75,16 +76,16 @@ const Hero = () => {
           </div>
         )}
 
-        <div className={styles.storeLink}>
+          <Button className={buttonStyles.buttonBlue1} style={{alignSelf:"center"}}>
           <a
             href={getSteamStoreUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.steamButton}
+            style={{color:"white"}}
           >
             View on Steam Store
           </a>
-        </div>
+          </Button>
 
         {/* {achievements.length > 0 && (
           <div className={styles.achievementsSection}>

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./GameCard.module.css";
 import PercentageWheel from "./percentageWheel/PercentageWheel";
 import { useGameDetails } from "../../../hooks/useGameDetails";
+import Button, { buttonStyles } from "../../common/Button";
 
 const GameCard = ({ game, onClose }) => {
   const { gameSchema, achievements, storeDetails, loading, error } =
@@ -76,7 +77,7 @@ const GameCard = ({ game, onClose }) => {
           </div>
         )}
 
-        <div className={styles.storeLink}>
+        <Button className={buttonStyles.buttonBlue1} style={{justifySelf:"center", margin:"1rem 0"}}>
           <a
             href={getSteamStoreUrl()}
             target="_blank"
@@ -85,7 +86,7 @@ const GameCard = ({ game, onClose }) => {
           >
             View on Steam Store
           </a>
-        </div>
+        </Button>
 
         {loading ? (
           <div className={styles.loading}>Loading game stats...</div>

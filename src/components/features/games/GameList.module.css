@@ -1,23 +1,24 @@
 .gameTable {
-    background-color: #2f2f2f;
+    background-color: #1e1e1e;
     width: 100%;
     border-radius: 0.5rem;
     border-collapse: collapse; 
     overflow: hidden;
+    text-align: center;
 }
   
 .tableTitles th {
-    background-color: #2f2f2f;
+    background-color: #1e1e1e;
     padding: 0.5rem;
 }
   
 .oddGame {
-    background-color: #2f2f2f;
+    background-color: #1e1e1e;
     padding: 0.5rem;
 }
   
 .evenGame {
-    background-color: #282828;
+    background-color: #191919;
     padding: 0.5rem;
 }
 
@@ -27,5 +28,5 @@
 }
 
 .gameRow:hover {
-    background-color: #3a3a3a;
+    background-color: #151515;
 }

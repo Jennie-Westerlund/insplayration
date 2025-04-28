@@ -14,49 +14,81 @@
 .card {
   background-color: #242424;
   border-radius: 12px;
-  padding: 24px;
+  padding: 0;
   width: 80%;
   max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease-in-out;
 }
 
-.closeButton {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #ccc;
+.thumbnailHeader {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 15rem;
+  object-position: 0 90%;
+  display: block;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.content {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.closeButton:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 24px 24px 24px;
 }
 
 .title {
-  margin-top: 0;
+  margin-top: 0px;
   font-size: 28px;
   color: #ffffff;
   margin-bottom: 8px;
-  padding-right: 40px;
+  padding: 0 24px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .players {
   color: #b3b3b3;
   margin-bottom: 24px;
   font-size: 18px;
+  padding: 0 24px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 .loading {
@@ -68,19 +100,59 @@
 .error {
   color: #ff6b6b;
   background-color: rgba(255, 107, 107, 0.1);
+  margin: 24px;
   padding: 16px;
   border-radius: 8px;
-  margin-bottom: 24px;
 }
 
-.content {
+.description {
+  background-color: rgba(42, 42, 42, 0.8);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0 24px 16px;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #e6e6e6;
+}
+
+.storeLink {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  justify-content: center;
+  margin: 0 24px 24px;
+}
+
+.steamButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #1b2838;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.steamButton:hover {
+  background-color: #2a475e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.steamIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .statsSection {
-  background-color: #2a2a2a;
+  background-color: rgba(42, 42, 42, 0.8);
   border-radius: 8px;
   padding: 20px;
 }
@@ -117,7 +189,7 @@
   flex: 1;
   min-width: 150px;
   max-width: 200px;
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.9);
   border-radius: 8px;
   padding: 16px;
   display: flex;
@@ -143,6 +215,14 @@
   border-radius: 4px;
   position: relative;
   cursor: help;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.achievementIcon:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px cornflowerblue;
+  border-radius: 4px;
 }
 
 .achievementIconImg {
@@ -173,6 +253,12 @@
   pointer-events: none;
 }
 
+.achievementIcon:hover .achievementTooltip,
+.achievementIcon:focus .achievementTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 .achievementTooltip::after {
   content: "";
   position: absolute;
@@ -182,11 +268,6 @@
   border-width: 5px;
   border-style: solid;
   border-color: #333 transparent transparent transparent;
-}
-
-.achievementIcon:hover .achievementTooltip {
-  visibility: visible;
-  opacity: 1;
 }
 
 .achievementContent {
@@ -211,7 +292,6 @@
 @media (max-width: 768px) {
   .card {
     width: 95%;
-    padding: 16px;
   }
 
   .achievementList {

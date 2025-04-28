@@ -5,6 +5,7 @@ const API_BASE_URL = import.meta.env.DEV ? "http://localhost:3001" : "";
 export function useGameDetails(gameId) {
   const [gameSchema, setGameSchema] = useState(null);
   const [achievements, setAchievements] = useState([]);
+  const [storeDetails, setStoreDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -19,6 +20,7 @@ export function useGameDetails(gameId) {
         setLoading(true);
         setError(null);
 
+        // Fetch game schema (for achievements)
         const schemaResponse = await fetch(
           `${API_BASE_URL}/api/game-schema/${gameId}`
         );
@@ -30,6 +32,31 @@ export function useGameDetails(gameId) {
         const schemaData = await schemaResponse.json();
         setGameSchema(schemaData);
 
+        // Fetch store details from our server endpoint
+        try {
+          console.log(
+            `Fetching store details for game ${gameId} from ${API_BASE_URL}/api/store-details/${gameId}`
+          );
+          const storeResponse = await fetch(
+            `${API_BASE_URL}/api/store-details/${gameId}`
+          );
+
+          if (storeResponse.ok) {
+            const storeData = await storeResponse.json();
+            console.log("Successfully fetched store details:", storeData);
+            setStoreDetails(storeData);
+          } else {
+            console.warn(
+              `Failed to fetch store details: ${storeResponse.status}`
+            );
+            const errorText = await storeResponse.text();
+            console.warn("Error response:", errorText);
+          }
+        } catch (storeError) {
+          console.error("Error fetching store details:", storeError);
+        }
+
+        // Process achievements
         const achievementDetails = {};
         if (
           schemaData &&
@@ -97,5 +124,5 @@ export function useGameDetails(gameId) {
     fetchGameDetails();
   }, [gameId]);
 
-  return { gameSchema, achievements, loading, error };
+  return { gameSchema, achievements, storeDetails, loading, error };
 }

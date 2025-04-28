@@ -51,6 +51,8 @@ const Hero = () => {
   const gameDescription = storeDetails?.short_description;
 
   return (
+    <section>
+    <h2 className={styles.recommendationTitle}>This week's recommendation</h2>
     <div className={styles.hero} style={backgroundStyle}>
       {headerImage && (
         <div className={styles.thumbnailHeader}>
@@ -64,7 +66,6 @@ const Hero = () => {
 
       <div className={styles.heroContent}>
         <h2 className={styles.title}>
-          This week's recommendation: <br />
           {storeDetails.name}
         </h2>
 
@@ -125,6 +126,7 @@ const Hero = () => {
         )} */}
       </div>
     </div>
+    </section>
   );
 };
 

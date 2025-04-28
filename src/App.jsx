@@ -3,14 +3,22 @@ import "./App.css";
 import React from "react";
 import MostPlayedGames from "./components/containers/MostPlayedGames";
 import Hero from "./components/containers/Hero";
-import PercentageWheel from "./components/features/games/percentageWheel/PercentageWheel";
+import Button, { buttonStyles } from "./components/common/Button"
+
 
 function App() {
   return (
     <main>
-      <h1>Insplayration</h1>
+      <img
+      src="../public/logo-white.svg"
+      alt="Insplayration logotyp"
+      className="logo"
+      />
       <p>Find your next gaming adventure from Steam's most popular titles</p>
       <Hero />
+      <Button className={buttonStyles.buttonBlue}>
+      Most Played Games on Steam this week
+      </Button>
       <MostPlayedGames />
     </main>
   );

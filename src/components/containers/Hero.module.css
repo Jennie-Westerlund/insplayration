@@ -1,0 +1,233 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #242424;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnailHeader {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.hero:hover .thumbnailImage {
+  transform: scale(1.05);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem 2rem;
+  margin-top: -40px;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: 32px;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.description {
+  background-color: rgba(42, 42, 42, 0.6);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #e6e6e6;
+  width: 100%;
+  max-width: 800px;
+}
+
+.loading {
+  text-align: center;
+  padding: 24px;
+  color: #b3b3b3;
+  background-color: #242424;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.error {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.storeLink {
+  margin-top: auto;
+}
+
+.steamButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #1b2838;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.steamButton:hover {
+  background-color: #2a475e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.achievementsSection {
+  flex: 1;
+}
+
+.achievementsSection h3 {
+  color: #e6e6e6;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #3a3a3a;
+  padding-bottom: 12px;
+}
+
+.achievementList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.achievementItem {
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+  background-color: rgba(51, 51, 51, 0.7);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+.achievementItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.achievementIcon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  position: relative;
+  cursor: help;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.achievementIcon:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px cornflowerblue;
+  border-radius: 4px;
+}
+
+.achievementIconImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+.achievementTooltip {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 100;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.achievementIcon:hover .achievementTooltip,
+.achievementIcon:focus .achievementTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.achievementTooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.achievementContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    flex-direction: column;
+  }
+
+  .achievementList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .achievementItem {
+    max-width: 100%;
+  }
+}

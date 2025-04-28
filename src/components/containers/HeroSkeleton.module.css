@@ -1,0 +1,219 @@
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.skeleton {
+  background-color: #242424;
+}
+
+.thumbnailHeader {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnailImageSkeleton {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #2a2a2a 8%, #3a3a3a 18%, #2a2a2a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.titleSkeleton {
+  margin: 0 0 1rem 0;
+  width: 80%;
+  max-width: 500px;
+}
+
+.titleLine {
+  height: 32px;
+  margin-bottom: 8px;
+  background: linear-gradient(to right, #2a2a2a 8%, #3a3a3a 18%, #2a2a2a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.titleLine:last-child {
+  width: 60%;
+}
+
+.descriptionSkeleton {
+  background: rgba(42, 42, 42, 0.6);
+}
+
+.descriptionLine {
+  height: 16px;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #3a3a3a 8%, #4a4a4a 18%, #3a3a3a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 2px;
+}
+
+.descriptionLine:last-child {
+  width: 70%;
+  margin-bottom: 0;
+}
+
+.storeButtonSkeleton {
+  width: 180px;
+  height: 40px;
+  background: linear-gradient(to right, #1b2838 8%, #2a475e 18%, #1b2838 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.thumbnailHeader {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnailImageSkeleton {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #2a2a2a 8%, #3a3a3a 18%, #2a2a2a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.titleSkeleton {
+  margin: 0 0 1rem 0;
+  width: 80%;
+  max-width: 500px;
+}
+
+.titleLine {
+  height: 32px;
+  margin-bottom: 8px;
+  background: linear-gradient(to right, #2a2a2a 8%, #3a3a3a 18%, #2a2a2a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.titleLine:last-child {
+  width: 60%;
+}
+
+.descriptionSkeleton {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+  background-color: rgba(42, 42, 42, 0.6);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.descriptionLine {
+  height: 16px;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #3a3a3a 8%, #4a4a4a 18%, #3a3a3a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 2px;
+}
+
+.descriptionLine:last-child {
+  width: 70%;
+  margin-bottom: 0;
+}
+
+.storeLinkSkeleton {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.storeButtonSkeleton {
+  width: 180px;
+  height: 40px;
+  background: linear-gradient(to right, #1b2838 8%, #2a475e 18%, #1b2838 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.achievementsSectionSkeleton {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.achievementsTitleSkeleton {
+  width: 150px;
+  height: 24px;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #2a2a2a 8%, #3a3a3a 18%, #2a2a2a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.achievementsListSkeleton {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.achievementItemSkeleton {
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+  height: 200px;
+  background-color: rgba(51, 51, 51, 0.7);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.achievementIconSkeleton {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, #3a3a3a 8%, #4a4a4a 18%, #3a3a3a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.achievementWheelSkeleton {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wheelCircleSkeleton {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #3a3a3a 8%, #4a4a4a 18%, #3a3a3a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.wheelTextSkeleton {
+  width: 80%;
+  height: 16px;
+  background: linear-gradient(to right, #3a3a3a 8%, #4a4a4a 18%, #3a3a3a 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 2px;
+}

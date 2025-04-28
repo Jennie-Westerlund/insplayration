@@ -1,15 +1,3 @@
-/* .circleBackground {
-    fill: none;
-    stroke: #ddd;
-}
-
-.circlePercentage {
-    fill: none;
-    stroke: cornflowerblue;
-}
- */
-
-/* src/components/features/games/percentageWheel/percentageWheel.module.css */
 .PercentageWheel {
   position: relative;
   display: flex;

@@ -1,10 +1,12 @@
-import React from 'react';
-import styles from './GameCard.module.css';
-import PercentageWheel from './percentageWheel/PercentageWheel';
-import { useGameDetails } from '../../../hooks/useGameDetails';
+import React from "react";
+import styles from "./GameCard.module.css";
+import PercentageWheel from "./percentageWheel/PercentageWheel";
+import { useGameDetails } from "../../../hooks/useGameDetails";
 
 const GameCard = ({ game, onClose }) => {
-  const { gameSchema, achievements, loading, error } = useGameDetails(game?.appid);
+  const { gameSchema, achievements, loading, error } = useGameDetails(
+    game?.appid
+  );
 
   if (!game) return null;
 
@@ -14,16 +16,32 @@ const GameCard = ({ game, onClose }) => {
     }
   };
 
+  // Helper function to debug achievement structure
+  const logAchievementStructure = () => {
+    if (achievements && achievements.length > 0) {
+      console.log("Achievement structure:", achievements[0]);
+    }
+  };
+
+  // Call this once to see the structure
+  React.useEffect(() => {
+    if (achievements && achievements.length > 0) {
+      logAchievementStructure();
+    }
+  }, [achievements]);
+
   return (
     <div className={styles.backdrop} onClick={handleBackdropClick}>
       <div className={styles.card}>
-        <button className={styles.closeButton} onClick={onClose}>×</button>
-        
+        <button className={styles.closeButton} onClick={onClose}>
+          ×
+        </button>
+
         <h2 className={styles.title}>{game.name}</h2>
         <p className={styles.players}>
-          <strong>Current Players:</strong> {game.peak_in_game || 'N/A'}
+          <strong>Current Players:</strong> {game.peak_in_game || "N/A"}
         </p>
-        
+
         {loading ? (
           <div className={styles.loading}>Loading game stats...</div>
         ) : error ? (
@@ -32,26 +50,27 @@ const GameCard = ({ game, onClose }) => {
           <div className={styles.content}>
             <div className={styles.statsSection}>
               <h3>Game Statistics</h3>
-              
-              {gameSchema && gameSchema.game && (
-                <div className={styles.gameInfo}>
-                  <p><strong>Game ID:</strong> {game.appid}</p>
-                  {gameSchema.game.gameName && (
-                    <p><strong>Full Name:</strong> {gameSchema.game.gameName}</p>
-                  )}
-                </div>
-              )}
-              
+
               {achievements.length > 0 ? (
                 <div className={styles.achievementsSection}>
                   <h3>Top Achievements</h3>
                   <div className={styles.achievementList}>
                     {achievements.slice(0, 5).map((achievement) => (
-                      <div key={achievement.name} className={styles.achievementItem}>
-                        <PercentageWheel 
-                          percentage={Math.round(achievement.percent)} 
-                          title={achievement.name}
-                        />
+                      <div
+                        key={achievement.name}
+                        className={styles.achievementItem}
+                      >
+                        {achievement.icon && (
+                          <div className={styles.achievementIcon}>
+                            <img src={achievement.icon} alt="" />
+                          </div>
+                        )}
+                        <div className={styles.achievementContent}>
+                          <PercentageWheel
+                            percentage={Math.round(achievement.percent)}
+                            title={achievement.displayName}
+                          />
+                        </div>
                       </div>
                     ))}
                   </div>

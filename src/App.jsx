@@ -3,8 +3,7 @@ import "./App.css";
 import React from "react";
 import MostPlayedGames from "./components/containers/MostPlayedGames";
 import Hero from "./components/containers/Hero";
-import Button, { buttonStyles } from "./components/common/Button"
-
+import Button, { buttonStyles } from "./components/common/Button";
 
 function App() {
   const [showGames, setShowGames] = useState(false);
@@ -15,21 +14,14 @@ function App() {
 
   return (
     <main>
-      <img
-      src="../public/logo-white.svg"
-      alt="Insplayration logotyp"
-      className="logo"
-      />
+      <img src="/logo-white.svg" alt="Insplayration logotyp" className="logo" />
       {/* <p>Find your next gaming adventure from Steam's most popular titles</p> */}
       <Hero />
-      <Button 
-          className={buttonStyles.buttonBlue} 
-          onClick={toggleGames}
-        >
-          {showGames ? "Hide" : "Show"} Most Played Games on Steam
-        </Button>
-        
-        {showGames && <MostPlayedGames />}
+      <Button className={buttonStyles.buttonBlue} onClick={toggleGames}>
+        {showGames ? "Hide" : "Show"} Most Played Games on Steam
+      </Button>
+
+      {showGames && <MostPlayedGames />}
     </main>
   );
 }

@@ -3,7 +3,7 @@ import styles from "./Hero.module.css";
 import PercentageWheel from "../features/games/percentageWheel/PercentageWheel";
 import { useGameDetails } from "../../hooks/useGameDetails";
 import HeroSkeleton from "./HeroSkeleton";
-import Button, { buttonStyles } from "../common/Button"
+import Button, { buttonStyles } from "../common/Button";
 
 const Hero = () => {
   // Use hardcoded game ID: 1519880
@@ -53,41 +53,42 @@ const Hero = () => {
 
   return (
     <section>
-    <h2 className={styles.recommendationTitle}>This week's recommendation</h2>
-    <div className={styles.hero} style={backgroundStyle}>
-      {headerImage && (
-        <div className={styles.thumbnailHeader}>
-          <img
-            src={headerImage}
-            alt={`${storeDetails.name} image`}
-            className={styles.thumbnailImage}
-          />
-        </div>
-      )}
-
-      <div className={styles.heroContent}>
-        <h2 className={styles.title}>
-          {storeDetails.name}
-        </h2>
-
-        {gameDescription && (
-          <div className={styles.description}>
-            <p>{gameDescription}</p>
+      <h2 className={styles.recommendationTitle}>This week's recommendation</h2>
+      <div className={styles.hero} style={backgroundStyle}>
+        {headerImage && (
+          <div className={styles.thumbnailHeader}>
+            <img
+              src={headerImage}
+              alt={`${storeDetails.name} image`}
+              className={styles.thumbnailImage}
+            />
           </div>
         )}
 
-          <Button className={buttonStyles.buttonGreen} style={{alignSelf:"center"}}>
-          <a
-            href={getSteamStoreUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{color:"white"}}
+        <div className={styles.heroContent}>
+          <h2 className={styles.title}>{storeDetails.name}</h2>
+
+          {gameDescription && (
+            <div className={styles.description}>
+              <p>{gameDescription}</p>
+            </div>
+          )}
+
+          <Button
+            className={buttonStyles.buttonGreen}
+            style={{ alignSelf: "center" }}
           >
-            View on Steam Store
-          </a>
+            <a
+              href={getSteamStoreUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "white" }}
+            >
+              View on Steam Store
+            </a>
           </Button>
 
-        {/* {achievements.length > 0 && (
+          {/* {achievements.length > 0 && (
           <div className={styles.achievementsSection}>
             <h3>Top Achievements</h3>
             <div className={styles.achievementList}>
@@ -125,8 +126,8 @@ const Hero = () => {
             </div>
           </div>
         )} */}
+        </div>
       </div>
-    </div>
     </section>
   );
 };

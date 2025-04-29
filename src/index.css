@@ -17,6 +17,9 @@ a {
   text-decoration: none;
 }
 
+main {
+  margin-bottom: 4rem;
+}
 
 body {
   margin: 0;

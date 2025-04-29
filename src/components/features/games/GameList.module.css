@@ -9,17 +9,19 @@
 
 .tableTitles th {
   background-color: #1e1e1e;
-  padding: 0.5rem;
 }
+
+td {
+  padding: 0.4rem;
+}
+  
 
 .oddGame {
   background-color: #1e1e1e;
-  padding: 0.5rem;
 }
 
 .evenGame {
   background-color: #191919;
-  padding: 0.5rem;
 }
 
 .gameRow {

@@ -9,22 +9,26 @@
   
 .tableTitles th {
     background-color: #1e1e1e;
-    padding: 0.5rem;
+    padding: 1.5rem;
+    font-size: 1.125rem;
 }
   
 .oddGame {
     background-color: #1e1e1e;
-    padding: 0.5rem;
+    padding: 1.5rem;
+    font-size: 1.125rem;
 }
   
 .evenGame {
     background-color: #191919;
-    padding: 0.5rem;
+    padding: 1.5rem;
+    font-size: 1.125rem;
 }
 
 .gameRow {
     cursor: pointer;
     transition: background-color 0.2s;
+    padding: 1.5rem;
 }
 
 .gameRow:hover {

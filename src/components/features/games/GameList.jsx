@@ -12,7 +12,7 @@ function GameList({
   if (loading)
     return (
       <div className={styles.loadingContainer}>
-        <h2>{title}</h2>
+        <h2 style={{ textAlign: "center" }}>{title}</h2>
         <div className={styles.loadingMessage}>Loading games data...</div>
       </div>
     );

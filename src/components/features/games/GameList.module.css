@@ -14,7 +14,6 @@
 td {
   padding: 0.4rem;
 }
-  
 
 .oddGame {
   background-color: #1e1e1e;
@@ -44,6 +43,7 @@ td {
 .loadingContainer,
 .errorContainer,
 .emptyContainer {
+  width: 100%;
   margin-bottom: 2rem;
 }
 

@@ -15,7 +15,6 @@ function App() {
   return (
     <main>
       <img src="/logo-white.svg" alt="Insplayration logotyp" className="logo" />
-      {/* <p>Find your next gaming adventure from Steam's most popular titles</p> */}
       <Hero />
       <Button className={buttonStyles.buttonBlue} onClick={toggleGames}>
         {showGames ? "Hide" : "Show"} Most Played Games on Steam

@@ -7,8 +7,9 @@
   text-align: center;
 }
 
-.tableTitles th {
+th {
   background-color: #1e1e1e;
+  padding: 0.8rem;
 }
 
 td {

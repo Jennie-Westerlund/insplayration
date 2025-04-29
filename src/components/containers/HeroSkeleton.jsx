@@ -31,7 +31,7 @@ const HeroSkeleton = () => {
           <div className={skeletonStyles.storeButtonSkeleton}></div>
         </div>
 
-        {/* Commented out achievement skeleton section for future use
+        {/* @todo: Commented out achievement skeleton section for eventual future use
         <div className={skeletonStyles.achievementsSectionSkeleton}>
           <div className={skeletonStyles.achievementsTitleSkeleton}></div>
           <div className={skeletonStyles.achievementsListSkeleton}>

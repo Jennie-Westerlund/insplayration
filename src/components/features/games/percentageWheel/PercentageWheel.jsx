@@ -1,10 +1,16 @@
-// src/components/features/games/percentageWheel/percentageWheel.jsx
-import React from 'react';
-import styles from './PercentageWheel.module.css';
+import React from "react";
+import styles from "./PercentageWheel.module.css";
 
-const PercentageWheel = ({ percentage = 0, title, className, loading, error }) => {
-  
-  const percentageWheel = className ? `${styles.PercentageWheel} ${className}` : styles.PercentageWheel;
+const PercentageWheel = ({
+  percentage = 0,
+  title,
+  className,
+  loading,
+  error,
+}) => {
+  const percentageWheel = className
+    ? `${styles.PercentageWheel} ${className}`
+    : styles.PercentageWheel;
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -14,7 +20,7 @@ const PercentageWheel = ({ percentage = 0, title, className, loading, error }) =
   const radius = 50;
   const dashArray = radius * Math.PI * 2;
   const dashOffset = dashArray - (dashArray * percentage) / 100;
-  
+
   return (
     <div className={styles.PercentageWheel}>
       <p>{title}</p>
@@ -44,9 +50,7 @@ const PercentageWheel = ({ percentage = 0, title, className, loading, error }) =
             className={styles.circlePercentageBlue}
           />
         </svg>
-        <p className={styles.percentageText}>
-          {percentage}%
-        </p>
+        <p className={styles.percentageText}>{percentage}%</p>
       </div>
     </div>
   );

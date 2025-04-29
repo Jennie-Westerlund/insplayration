@@ -6,7 +6,7 @@ import HeroSkeleton from "./HeroSkeleton";
 import Button, { buttonStyles } from "../common/Button";
 
 const Hero = () => {
-  // Use hardcoded game ID: 1519880
+  // Use hardcoded game ID: 1519880, aka Skullbangers!
   const { gameSchema, achievements, storeDetails, loading, error } =
     useGameDetails(1519880);
 
@@ -88,7 +88,8 @@ const Hero = () => {
             </a>
           </Button>
 
-          {/* {achievements.length > 0 && (
+          {/* @todo: do we want achievements in the hero?
+          {achievements.length > 0 && (
           <div className={styles.achievementsSection}>
             <h3>Top Achievements</h3>
             <div className={styles.achievementList}>

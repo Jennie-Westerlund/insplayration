@@ -1,36 +1,92 @@
 .gameTable {
-    background-color: #1e1e1e;
-    width: 100%;
-    border-radius: 0.5rem;
-    border-collapse: collapse; 
-    overflow: hidden;
-    text-align: center;
+  background-color: #1e1e1e;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-collapse: collapse;
+  overflow: hidden;
+  text-align: center;
 }
-  
+
 .tableTitles th {
-    background-color: #1e1e1e;
-    padding: 1.5rem;
-    font-size: 1.125rem;
+  background-color: #1e1e1e;
+  padding: 0.5rem;
 }
-  
+
 .oddGame {
-    background-color: #1e1e1e;
-    padding: 1.5rem;
-    font-size: 1.125rem;
+  background-color: #1e1e1e;
+  padding: 0.5rem;
 }
-  
+
 .evenGame {
-    background-color: #191919;
-    padding: 1.5rem;
-    font-size: 1.125rem;
+  background-color: #191919;
+  padding: 0.5rem;
 }
 
 .gameRow {
-    cursor: pointer;
-    transition: background-color 0.2s;
-    padding: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .gameRow:hover {
-    background-color: #151515;
+  background-color: #151515;
+}
+
+.gameRow:focus {
+  outline: 2px solid #7aa5f2;
+  outline-offset: -2px;
+  background-color: #151515;
+  position: relative;
+  z-index: 1;
+}
+
+.loadingContainer,
+.errorContainer,
+.emptyContainer {
+  margin-bottom: 2rem;
+}
+
+.loadingMessage,
+.errorMessage,
+.emptyMessage {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.loadingMessage {
+  color: #a0a0a0;
+  position: relative;
+  overflow: hidden;
+}
+
+.loadingMessage:after {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+.errorMessage {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
 }

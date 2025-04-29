@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./GameCard.module.css";
 import PercentageWheel from "./percentageWheel/PercentageWheel";
 import { useGameDetails } from "../../../hooks/useGameDetails";
@@ -7,6 +7,56 @@ import Button, { buttonStyles } from "../../common/Button";
 const GameCard = ({ game, onClose }) => {
   const { gameSchema, achievements, storeDetails, loading, error } =
     useGameDetails(game?.appid);
+
+  const cardRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const steamButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focusableElements = cardRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    const previousActiveElement = document.activeElement;
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      if (previousActiveElement) {
+        previousActiveElement.focus();
+      }
+    };
+  }, [onClose]);
 
   if (!game) return null;
 
@@ -50,9 +100,20 @@ const GameCard = ({ game, onClose }) => {
   const gameDescription = storeDetails?.short_description;
 
   return (
-    <div className={styles.backdrop} onClick={handleBackdropClick}>
-      <div className={styles.card} style={backgroundStyle}>
-        <button className={styles.closeButton} onClick={onClose}>
+    <div
+      className={styles.backdrop}
+      onClick={handleBackdropClick}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="game-card-title"
+    >
+      <div className={styles.card} style={backgroundStyle} ref={cardRef}>
+        <button
+          className={styles.closeButton}
+          onClick={onClose}
+          ref={closeButtonRef}
+          aria-label="Close game details"
+        >
           ×
         </button>
 
@@ -66,7 +127,9 @@ const GameCard = ({ game, onClose }) => {
           </div>
         )}
 
-        <h2 className={styles.title}>{game.name}</h2>
+        <h2 className={styles.title} id="game-card-title">
+          {game.name}
+        </h2>
         <p className={styles.players}>
           <strong>Current Players:</strong> {game.peak_in_game || "N/A"}
         </p>
@@ -77,7 +140,11 @@ const GameCard = ({ game, onClose }) => {
           </div>
         )}
 
-        <Button className={buttonStyles.buttonGreen} style={{justifySelf:"center", margin:"1rem 0"}}>
+        <Button
+          className={buttonStyles.buttonGreen}
+          style={{ justifySelf: "center", margin: "1rem 0" }}
+          ref={steamButtonRef}
+        >
           <a
             href={getSteamStoreUrl()}
             target="_blank"

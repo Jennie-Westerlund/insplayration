@@ -84,11 +84,21 @@
   height: 40px;
   border-radius: 50%;
   z-index: 10;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 .closeButton:hover {
   background-color: rgb(6 6 6 / 75%);
   color: white;
+}
+
+/* Enhanced focus styles */
+.closeButton:focus {
+  outline: 2px solid #7aa5f2;
+  outline-offset: 2px;
+  transform: scale(1.05);
 }
 
 .loading {
@@ -135,6 +145,12 @@ h3 {
 
 .steamButton:hover {
   color: white;
+}
+
+.steamButton:focus-visible {
+  outline: 2px solid #7aa5f2;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .steamIcon {
@@ -213,7 +229,7 @@ h3 {
 
 .achievementIcon:focus {
   transform: scale(1.1);
-  box-shadow: 0 0 0 3px cornflowerblue;
+  box-shadow: 0 0 0 3px #7aa5f2;
   border-radius: 4px;
 }
 
